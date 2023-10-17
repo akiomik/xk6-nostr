@@ -7,4 +7,5 @@ import (
 
 func init() {
 	modules.Register("k6/x/nostr", &nostr.Nostr{})
+	modules.Register("k6/x/nostr/event", &nostr.Event{})
 }
