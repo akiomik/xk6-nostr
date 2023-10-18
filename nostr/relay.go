@@ -14,6 +14,6 @@ func (r *Relay) Publish(ev nostr.Event) (nostr.Status, error) {
 	return r.underlying.Publish(context.Background(), ev)
 }
 
-func (r *Relay) Close(ev nostr.Event) error {
+func (r *Relay) Close() error {
 	return r.underlying.Close()
 }
