@@ -1,12 +1,12 @@
 package nostr
 
 import (
-  "context"
+	"context"
 
-  "github.com/nbd-wtf/go-nostr"
+	"github.com/nbd-wtf/go-nostr"
 )
 
-type Nostr struct {}
+type Nostr struct{}
 
 func (n *Nostr) GeneratePrivateKey() string {
 	return nostr.GeneratePrivateKey()
@@ -17,6 +17,6 @@ func (n *Nostr) GetPublicKey(sk string) (string, error) {
 }
 
 func (n *Nostr) RelayConnect(url string) (*Relay, error) {
-  relay, err := nostr.RelayConnect(context.Background(), url)
-  return &Relay{ underlying: relay }, err
+	relay, err := nostr.RelayConnect(context.Background(), url)
+	return &Relay{underlying: relay}, err
 }

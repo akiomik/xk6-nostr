@@ -1,16 +1,15 @@
 package nostr
 
 import (
-  "context"
+	"context"
 
-  "github.com/nbd-wtf/go-nostr"
+	"github.com/nbd-wtf/go-nostr"
 )
 
 type Relay struct {
-  underlying *nostr.Relay
+	underlying *nostr.Relay
 }
 
 func (r *Relay) Publish(ev nostr.Event) (nostr.Status, error) {
 	return r.underlying.Publish(context.Background(), ev)
 }
-
