@@ -1,6 +1,6 @@
 MAKEFLAGS += --silent
 
-all: clean format test build
+all: clean format lint test build
 
 ## help: Prints a list of available build targets.
 help:
@@ -24,6 +24,10 @@ build:
 ## format: Applies Go formatting to code.
 format:
 	go fmt ./...
+
+## lint: Checks Go formatting.
+lint:
+	test -z $(shell gofmt -l .)
 
 ## test: Executes any unit tests.
 test:
