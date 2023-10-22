@@ -33,5 +33,6 @@ make test
 ### Execute example scripts
 
 ```bash
-k6 run --vus 10 --duration 30s examples/publish.js
+# NOTE: k6 is built with `make build`
+./k6 run --vus 10 --duration 30s examples/publish.js
 ```
