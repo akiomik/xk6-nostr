@@ -6,7 +6,7 @@ import (
 
 type Event struct{}
 
-func (e *Event) Sign(event *nostr.Event, pk string) (*nostr.Event, error) {
-	err := event.Sign(pk)
+func (e *Event) Sign(event *nostr.Event, sk string) (*nostr.Event, error) {
+	err := event.Sign(sk)
 	return event, err
 }
