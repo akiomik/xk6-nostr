@@ -14,6 +14,10 @@ func (r *Relay) Publish(ev nostr.Event) (nostr.Status, error) {
 	return r.underlying.Publish(r.vu.Context(), ev)
 }
 
+func (r *Relay) QuerySync(filter nostr.Filter, opts ...nostr.SubscriptionOption) ([]*nostr.Event, error) {
+  return r.underlying.QuerySync(r.vu.Context(), filter, opts...)
+}
+
 func (r *Relay) Close() error {
 	return r.underlying.Close()
 }
