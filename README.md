@@ -1,6 +1,6 @@
 # xk6-nostr
 
-An xk6 extension for nostr.
+A load testing extension for [Nostr](https://nostr.com) using [k6](https://k6.io).
 
 ## Build
 
@@ -10,7 +10,7 @@ An xk6 extension for nostr.
 go install go.k6.io/xk6/cmd/xk6@latest
 ```
 
-2. Build the extension:
+2. Build the k6 with extension:
 
 ```
 xk6 build --with github.com/akiomik/xk6-nostr@latest
