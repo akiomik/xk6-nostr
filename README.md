@@ -36,3 +36,27 @@ make test
 # NOTE: k6 is built with `make build`
 ./k6 run --vus 5 --duration 1m examples/publish.js
 ```
+
+## Examples
+
+You can find more examples in [examples/](https://github.com/akiomik/xk6-nostr/tree/main/examples).
+
+```javascript
+import nostr from 'k6/x/nostr';
+import event from 'k6/x/nostr/event';
+import { check } from 'k6';
+
+const relay = nostr.relayConnect("ws://127.0.0.1:7777");
+const sk = nostr.generatePrivateKey();
+
+export default function () {
+  const now = Math.round(new Date().getTime() / 1000);
+  const ev = event.sign({ content: Math.random(), kind: 1, created_at: now }, sk);
+  const status = relay.publish(ev);
+  check(status, { 'status is success': (s) => s.string() === 'success' });
+}
+
+export function teardown() {
+  relay.close();
+}
+```
